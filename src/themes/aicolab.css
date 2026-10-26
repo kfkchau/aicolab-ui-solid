@@ -20,7 +20,7 @@
 	--color-base-100: light-dark(#fffffb, #1a222c);
 	--color-base-content: light-dark(#241c0b, #dfe6ec);
 	--color-primary: light-dark(#e8b04c, #f0b83d);
-	--color-secondary: light-dark(#005682, #9fd68a);
+	--color-secondary: #005682;
 	--color-accent: light-dark(#b9c27a, #c9b48a);
 	--color-success: light-dark(#43913a, #6fb392);
 

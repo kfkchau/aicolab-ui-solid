@@ -273,6 +273,7 @@ export const DARK_PRESETS: ThemePreset[] = [
 			base: '#1a222c',
 			content: '#dfe6ec',
 			primary: '#f0b83d',
+			secondary: '#005682',
 			success: '#6fb392',
 		},
 	},
