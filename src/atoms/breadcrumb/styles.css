@@ -84,6 +84,25 @@
 		color: var(--_ui-breadcrumb-separator-ink);
 		user-select: none;
 	}
+	/* ── Fitted to the room (the `fit` prop): one line, no wider than what
+	   holds it; the leading steps the component hides are gone, and the first
+	   step shown carries no separator; narrower than the fewest steps, the
+	   trail scrolls sideways, its bar out of sight. ── */
+	:scope[data-fit] {
+		max-width: 100%;
+		min-width: 0;
+	}
+	:scope[data-fit] > .ui-breadcrumb-trail {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+	.ui-breadcrumb-step[hidden] {
+		display: none;
+	}
+	.ui-breadcrumb-step[hidden] + .ui-breadcrumb-step::before {
+		content: none;
+	}
 	.ui-breadcrumb-link {
 		border: 0;
 		margin: 0;
