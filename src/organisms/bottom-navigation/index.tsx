@@ -58,6 +58,10 @@ export function BottomNavigation<Id extends string>(
 		onSelect: (id: Id) => void
 		/** Elevated action occupies the centre slot between the two item halves. */
 		centre: JSX.Element
+		/** An accessory before the first item (a consumer-supplied control
+		 *  where an item will not do: an account menu as a bar item), the
+		 *  mirror of `trailing`; both take `accessoryClass`. */
+		leading?: JSX.Element
 		trailing?: JSX.Element
 		accessoryClass?: ClassProp
 		class?: ClassProp
@@ -66,6 +70,7 @@ export function BottomNavigation<Id extends string>(
 ) {
 	// Single-eval slot resolution (children()) — element-JSX props are getters;
 	// double evaluation breaks hydration claiming.
+	const leading = children(() => props.leading)
 	const trailing = children(() => props.trailing)
 	const split = (): number => Math.ceil(props.items.length / 2)
 	const renderItems = (items: readonly BottomNavigationItem<Id>[]) => (
@@ -93,6 +98,9 @@ export function BottomNavigation<Id extends string>(
 			{...knobs.attributes(props)}
 			style={mergeKnobStyle(knobs.style(props), undefined)}
 		>
+			<Show when={leading()}>
+				<div class={['ui-bottom-navigation-accessory', props.accessoryClass]}>{leading()}</div>
+			</Show>
 			{renderItems(props.items.slice(0, split()))}
 			<span class="ui-bottom-navigation-centre-slot" aria-hidden="true" />
 			<div class="ui-bottom-navigation-centre">{props.centre}</div>
