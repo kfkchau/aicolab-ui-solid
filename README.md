@@ -1,5 +1,7 @@
 # @aicolab/ui-solid
 
+Fork notes: [related UI forks and why they are useful](./FORKS.md).
+
 A Solid v2 component system written in plain, modern CSS — no Tailwind, no
 CSS-in-JS, no build-time styling step. Components are authored for the
 platform the web is converging on (typed `attr()`, `@property`, `@scope`,
